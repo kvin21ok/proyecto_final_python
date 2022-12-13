@@ -1,0 +1,15 @@
+{% extends 'ejemplo/base.html' %}
+
+{% block titulo %}
+Modificar familiar 
+{% endblock %}
+
+{% block contenido %}
+    <form action='/mi-familia/actualizar/{{ familiar.id }}' method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+    <h2 style="color:green"> {{msg_exito }}</h2>
+    <a href="/mi-familia">Volver</a>
+{% endblock %}

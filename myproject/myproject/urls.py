@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from ejemplo.views import (index, mostrar_familiares, BuscarFamiliar)
+from ejemplo.views import (index, mostrar_familiares, BuscarFamiliar, AltaFamiliar, ActualizarFamiliar, BorrarFamiliar)
 
 
 urlpatterns = [
@@ -23,4 +23,7 @@ urlpatterns = [
     path('saludar/', index), #ESTA ES LA FUNCION SALUDAR QUE CREAMOS PRIMERO
     path('mi-familia/', mostrar_familiares), #NUEVA VISTA
     path('mi-familia/buscar', BuscarFamiliar.as_view()), #ESTA RUTA BUSCA FAMILIAR POR NOMBRE
+    path('mi-familia/alta', AltaFamiliar.as_view()),
+    path('mi-familia/actualizar/<int:pk>', ActualizarFamiliar.as_view()),
+    path('mi-familia/borrar/<int:pk>', BorrarFamiliar.as_view()),
 ]
