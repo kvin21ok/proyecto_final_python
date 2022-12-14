@@ -1,0 +1,17 @@
+{% extends 'ejemplo/base_empleos.html' %}
+
+{% block titulo %}
+Lista de empleos
+{% endblock %}
+
+{% block contenido %}
+    <a href="/mis-empleos/alta">Dar de alta un empleo</a>
+    {% for empleo in lista_empleos %}
+        <ul>
+            <li> Id:{{empleo.id}}, Ocupacion: {{empleo.ocupacion}}, Antiguedad: {{empleo.antiguedad}}, Cargo: {{empleo.cargo}}, Descripcion: {{empleo.breve_descripcion}}
+                <a href='actualizar/{{ empleo.id }}'> Actualizar </a>
+                <a href="borrar/{{ empleo.id }}">Borrar</a>
+            </li>
+        </ul>
+    {% endfor %}
+{% endblock %}

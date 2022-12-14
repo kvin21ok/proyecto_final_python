@@ -1,0 +1,15 @@
+{% extends 'ejemplo/base_mascotas.html' %}
+
+{% block titulo %}
+Modificar mascota
+{% endblock %}
+
+{% block contenido %}
+    <form action='/mis-mascotas/actualizar/{{ mascota.id }}' method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+    <h2 style="color:green"> {{msg_exito }}</h2>
+    <a href="/mis-mascotas">Volver</a>
+{% endblock %}

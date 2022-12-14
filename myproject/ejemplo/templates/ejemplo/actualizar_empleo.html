@@ -1,0 +1,15 @@
+{% extends 'ejemplo/base_empleos.html' %}
+
+{% block titulo %}
+Modificar empleo
+{% endblock %}
+
+{% block contenido %}
+    <form action='/mis-empleos/actualizar/{{ empleo.id }}' method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+    <h2 style="color:green"> {{msg_exito }}</h2>
+    <a href="/mis-empleos">Volver</a>
+{% endblock %}

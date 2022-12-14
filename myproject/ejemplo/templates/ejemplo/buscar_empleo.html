@@ -1,0 +1,19 @@
+{% extends 'ejemplo/base_empleos.html' %}
+
+{% block titulo %}
+Buscar empleo por ocupacion
+{% endblock %}
+
+{% block contenido %}
+    <form action="/mis-empleos/buscar" method="post">
+        {% csrf_token %}
+        {{ form  }}
+        <input type="submit" value="Submit">
+    </form>
+
+    {% for empleo in lista_ocupaciones %}
+    <ul>
+        <li> Ocupacion: {{empleo.ocupacion}}, Antiguedad: {{empleo.antiguedad}}, Cargo: {{empleo.cargo}} </li>
+    </ul>
+    {% endfor %}
+{% endblock %}

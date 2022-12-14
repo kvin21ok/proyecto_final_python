@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from ejemplo.views import (index, mostrar_familiares, BuscarFamiliar, AltaFamiliar, ActualizarFamiliar, BorrarFamiliar)
+from ejemplo.views import (index, mostrar_familiares, BuscarFamiliar, AltaFamiliar, ActualizarFamiliar, BorrarFamiliar, 
+                            mostrar_mascotas, BuscarMascota, AltaMascota, ActualizarMascota, BorrarMascota,
+                            mostrar_empleos, BuscarEmpleo, AltaEmpleo, ActualizarEmpleo, BorrarEmpleo,)
 
 
 urlpatterns = [
@@ -26,4 +28,14 @@ urlpatterns = [
     path('mi-familia/alta', AltaFamiliar.as_view()),
     path('mi-familia/actualizar/<int:pk>', ActualizarFamiliar.as_view()),
     path('mi-familia/borrar/<int:pk>', BorrarFamiliar.as_view()),
+    path('mis-mascotas/', mostrar_mascotas),
+    path('mis-mascotas/buscar', BuscarMascota.as_view()),
+    path('mis-mascotas/alta', AltaMascota.as_view()),
+    path('mis-mascotas/actualizar/<int:pk>', ActualizarMascota.as_view()),
+    path('mis-mascotas/borrar/<int:pk>', BorrarMascota.as_view()),
+    path('mis-empleos/', mostrar_empleos),
+    path('mis-empleos/buscar', BuscarEmpleo.as_view()),
+    path('mis-empleos/alta', AltaEmpleo.as_view()),
+    path('mis-empleos/actualizar/<int:pk>', ActualizarEmpleo.as_view()),
+    path('mis-empleos/borrar/<int:pk>', BorrarEmpleo.as_view()),
 ]
